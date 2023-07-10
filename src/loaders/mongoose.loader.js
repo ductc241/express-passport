@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 module.exports = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/Electro", {
+    await mongoose.connect("mongodb://localhost:27017/auth-server", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

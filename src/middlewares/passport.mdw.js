@@ -16,7 +16,9 @@ function localVerify(username, password, done) {
 
   return done(null, userInfor);
 }
+const localStrategy = new LocalStrategy(localVerify);
 
+// function verify
 function jwtVerify(jwt_payload, done) {
   //logic verify with data from jwt_payload (find user, compare username & password,...)
 
@@ -27,8 +29,6 @@ function jwtVerify(jwt_payload, done) {
 
   return done(null, userInfor);
 }
-
-// passport strategies
 const jwtStrategy = new JwtStrategy(
   {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -36,7 +36,6 @@ const jwtStrategy = new JwtStrategy(
   },
   jwtVerify
 );
-const localStrategy = new LocalStrategy(localVerify);
 
 module.exports = {
   jwtStrategy,

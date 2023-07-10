@@ -8,7 +8,7 @@ const routerConfig = require("../api/routes");
 module.exports = () => {
   const app = express();
 
-  // session
+  // config session
   app.use(
     session({
       secret: "secret key",
@@ -23,6 +23,14 @@ module.exports = () => {
   //cookie
   app.use(cookieParser());
 
+  //cors
+  app.use(
+    cors({
+      origin: ["http://127.0.0.1:5173", "http://localhost:5173"],
+      credentials: true,
+    })
+  );
+
   // parse json request body
   app.use(express.json());
 
@@ -32,9 +40,6 @@ module.exports = () => {
   // template engine
   app.set("view engine", "pug");
   app.set("views", path.join(process.cwd(), "src/views"));
-
-  // set cors blocked resources
-  app.use(cors());
 
   // api routes
   // routerConfig(app);

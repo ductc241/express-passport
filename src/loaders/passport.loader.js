@@ -6,7 +6,7 @@ const { localStrategy, jwtStrategy } = require("../middlewares/passport.mdw");
 module.exports = (app) => {
   app.use(passport.initialize());
 
-  // config session strategy
+  //// Config session strategy
   // passport.use(localStrategy);
   // passport.serializeUser((user, cb) => {
   //   return cb(null, user);
@@ -15,6 +15,6 @@ module.exports = (app) => {
   //   return cb(null, user);
   // });
 
-  // config jwt strategy
+  //// Config jwt strategy
   passport.use(jwtStrategy);
 };

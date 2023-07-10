@@ -16,8 +16,6 @@ router.post(
   })
 );
 
-// login with jwt strategy + no session
-
 router.get("/logout", (req, res) => {
   req.logOut(() => {
     res.send("logout success");
